@@ -1,0 +1,53 @@
+header {
+	height: 120px;
+	display: flex;
+	background-color: #202020;
+	width: 100%;
+	flex-direction: row;
+}
+
+.logo {
+	display: flex;
+	margin-left: 24px;
+}
+
+.logo_img {
+	height: 48px;
+	align-self: center;
+}
+.slogan {
+	align-self: center;
+	margin-left: 12px;
+}
+
+.a1,
+.a2 {
+	color: var(--text-color);
+	margin-bottom: 0;
+	margin-top: 0;
+	display: block;
+	text-decoration: none;
+}
+
+.a1 {
+	font-size: 20px;
+}
+.a2 {
+	font-size: 14px;
+}
+
+.menu {
+	display: flex;
+	gap:6px;
+	justify-self: right;
+	align-self: center;
+	margin-left: auto;
+	justify-content: space-between;
+	margin-right: 16px;
+	width: 220px;
+}
+
+.menu a {
+	text-decoration: none;
+	color: var(--text-color);
+}
