@@ -25,7 +25,7 @@ const pool = mariadb.createPool({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "mitboc",
+  database: "contact",
 });
 
 app.set("view engine", "ejs");
@@ -48,7 +48,7 @@ app.post("/contact", async (req, res) => {
   const db = await pool.getConnection();
   const body = req.body;
   const query =
-    "INSERT INTO mesaje (nume, email, telefon, mesaj) VALUES(?, ?, ?, ?)";
+    "INSERT INTO contact_tabela (nume, email, telefon, mesaj) VALUES(?, ?, ?, ?)";
   const result = await db.query(query, [
     body.nume,
     body.email,
