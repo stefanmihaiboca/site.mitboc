@@ -1,7 +1,3 @@
-// ES6 
-
-
-// ECMAScript notation
 const express = require("express");
 const bodyParser = require("body-parser");
 const path = require("path");
@@ -11,15 +7,7 @@ const expressLayouts = require('express-ejs-layouts');
 app.set('layout', 'layout');
 app.use(expressLayouts);
 
-// ES6 / modules
-
-
-// import express from "express";
-// import bodyParser from "body-parser";
-// import path from "path";
-// import mariadb from "mariadb";
-
-
+const adminRouter = require('./routes/admin'); // Adaugă această linie
 
 const pool = mariadb.createPool({
   host: "localhost",
@@ -66,5 +54,7 @@ app.get("/admin", async (req, res) => {
   console.log(result);
   res.render("admin", {messages: result,layout:'layout'});
 });
+
+app.use('/admin', adminRouter); // Adaugă această linie
 
 app.listen(3000);
