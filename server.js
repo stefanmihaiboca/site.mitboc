@@ -7,8 +7,6 @@ const expressLayouts = require('express-ejs-layouts');
 app.set('layout', 'layout');
 app.use(expressLayouts);
 
-const adminRouter = require('./routes/admin'); // Adaugă această linie
-
 const pool = mariadb.createPool({
   host: "localhost",
   user: "root",
@@ -54,7 +52,7 @@ app.get("/admin", async (req, res) => {
   console.log(result);
   res.render("admin", {messages: result,layout:'layout'});
 });
-
-app.use('/admin', adminRouter); // Adaugă această linie
+const adminRouter = require('./routes/admin');
+app.use('/admin', adminRouter);
 
 app.listen(3000);
