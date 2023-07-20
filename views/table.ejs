@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Table</title>
+  <style>
+    /* Stilurile pentru tabel actualizate */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: black; /* Fundalul negru */
+      color: white; /* Textul alb */
+    }
+
+    h1 {
+      color: white; /* Titlul alb */
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #333; /* Fundalul containerului */
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+      background-color: #f2f2f2; /* Culoarea de fundal a celulelor */
+      color: black; /* Culoarea textului din celule */
+    }
+
+    th {
+      background-color: #ddd; /* Culoarea de fundal a antetelor */
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Table</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nume</th>
+          <th>Email</th>
+          <th>Nr Telefon</th>
+          <th>Mesaj</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach(row => { %>
+          <tr>
+            <td><%= row.Nume %></td>
+            <td><%= row.Email %></td>
+            <td><%= row.Telefon %></td>
+            <td><%= row.Mesaj %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table> 
+  </div>
+</body>
+</html>

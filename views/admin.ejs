@@ -3,6 +3,7 @@
 <head>
   <title>Admin Page</title>
   <style>
+    /* Stilurile existente */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -12,7 +13,7 @@
     h1 {
       color: #333;
     }
-    
+   
     .container {
       max-width: 800px;
       margin: 0 auto;
@@ -50,7 +51,7 @@
 <body>
   <div class="container">
     <h1>Admin Page</h1>
-    <form>
+    <form id="loginForm" action="/admin" method="post"> <!-- Adăugăm atributul "action" și "method" în formular -->
       <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -64,5 +65,25 @@
       </div>
     </form>
   </div>
+
+  <script>
+    const loginForm = document.getElementById("loginForm");
+
+    loginForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // Previne trimiterea formularului
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      // Verifică username-ul și parola
+      if (username === "Stefan" && password === "Stefan20") {
+        // Autentificare reușită, redirecționează către pagina table.ejs
+        window.location.href = "/table"; // Acesta este URL-ul către pagina table.ejs
+      } else {
+        // Autentificare eșuată, afișează mesaj de eroare sau acțiune corespunzătoare
+        alert("Autentificare eșuată! Verificați username-ul și parola introduse.");
+      }
+    });
+  </script>
 </body>
 </html>
