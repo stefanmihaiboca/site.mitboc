@@ -51,7 +51,7 @@
 <body>
   <div class="container">
     <h1>Admin Page</h1>
-    <form id="loginForm" action="/admin" method="post"> <!-- Adăugăm atributul "action" și "method" în formular -->
+    <form id="loginForm" action="/admin" method="post"> 
       <div class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -70,20 +70,20 @@
     const loginForm = document.getElementById("loginForm");
 
     loginForm.addEventListener("submit", function (event) {
-      event.preventDefault(); // Previne trimiterea formularului
+      event.preventDefault(); 
 
       const username = document.getElementById("username").value;
       const password = document.getElementById("password").value;
 
-      // Verifică username-ul și parola
+      
       if (username === "Stefan" && password === "Stefan20") {
-        // Autentificare reușită, redirecționează către pagina table.ejs
-        window.location.href = "/table"; // Acesta este URL-ul către pagina table.ejs
+        window.location.href = "/table"; 
       } else {
-        // Autentificare eșuată, afișează mesaj de eroare sau acțiune corespunzătoare
+        
         alert("Autentificare eșuată! Verificați username-ul și parola introduse.");
       }
     });
   </script>
 </body>
 </html>
+
