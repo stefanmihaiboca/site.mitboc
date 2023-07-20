@@ -3,27 +3,26 @@
 <head>
   <title>Admin Table</title>
   <style>
-    /* Stilurile pentru tabel actualizate */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
-      background-color: black; /* Fundalul negru */
+      background-color: #111; /* Fundalul negru */
       color: white; /* Textul alb */
     }
 
-    h1 {
-      color: white; /* Titlul alb */
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
     .container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       background-color: #333; /* Fundalul containerului */
       border-radius: 8px;
       padding: 20px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
     table {
@@ -33,18 +32,45 @@
     }
 
     th, td {
-      border: 1px solid #ccc;
+      border: 1px solid #555; /* Linii mai inchise la culoare */
       padding: 12px;
       text-align: left;
-      background-color: #f2f2f2; /* Culoarea de fundal a celulelor */
-      color: black; /* Culoarea textului din celule */
     }
 
     th {
-      background-color: #ddd; /* Culoarea de fundal a antetelor */
+      background-color: #444; /* Antet mai inchis la culoare */
       font-weight: bold;
     }
 
+    .action-buttons {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .delete-button, .mark-button {
+      background-color: #d32f2f; /* Culoare rosie pentru butoane */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+
+    .mark-button {
+      background-color: #1976d2; /* Culoare albastra pentru butonul de marca */
+    }
+
+    .delete-button:hover, .mark-button:hover {
+      background-color: #b71c1c; /* Culoare rosie mai inchisa la hover */
+    }
+
+    .delete-button i, .mark-button i {
+      margin-right: 5px;
+    }
+
+    .delete-button:hover, .mark-button:hover {
+      color: #111; /* Schimbam culoarea textului la hover */
+    }
   </style>
 </head>
 <body>
@@ -53,23 +79,77 @@
     <table>
       <thead>
         <tr>
+          <th>#</th>
           <th>Nume</th>
           <th>Email</th>
           <th>Nr Telefon</th>
           <th>Mesaj</th>
+          <th>Acțiuni</th>
         </tr>
       </thead>
       <tbody>
-        <% data.forEach(row => { %>
+        <% data.forEach((row) => { %>
           <tr>
+            <td><%= row.ID %></td>
             <td><%= row.Nume %></td>
             <td><%= row.Email %></td>
             <td><%= row.Telefon %></td>
             <td><%= row.Mesaj %></td>
+            <td class="action-buttons">
+              <button class="delete-button" onclick="deleteMessage('<%= row.ID %>')">
+                <i class="fas fa-trash-alt"></i> Șterge
+              </button>
+              <button class="mark-button" onclick="markMessage('<%= row.ID %>')">
+                <i class="fas fa-check"></i> Marchează
+              </button>
+            </td>
           </tr>
         <% }); %>
       </tbody>
     </table> 
   </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script>
+    // Funcție pentru ștergerea mesajului
+    async function deleteMessage(id) {
+      try {
+        const response = await fetch(`/table/delete/${id}`, {
+          method: 'DELETE'
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          alert("Mesajul a fost șters cu succes!");
+          window.location.reload(); // Reîncarcăm pagina pentru a actualiza tabelul
+        } else {
+          alert("Eroare la ștergere!");
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+
+    // Funcție pentru marcarea mesajului
+    async function markMessage(id) {
+      try {
+        const response = await fetch(`/table/mark/${id}`, {
+          method: 'PUT'
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          alert("Mesajul a fost marcat cu succes!");
+          window.location.reload(); // Reîncarcăm pagina pentru a actualiza tabelul
+        } else {
+          alert("Eroare la marcarea mesajului!");
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
+  </script>
 </body>
 </html>

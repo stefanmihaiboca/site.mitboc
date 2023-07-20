@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/produse.css" rel="stylesheet" />
-    <title>Mitboc</title>
-  </head>
-  <body>
-    <p class="title"></p>
-    <div class="contact">
-      <h2>Contacteaza-ne  </h2>
-      <form method="POST" action="/contact" >
-        <p>
-          <label
-            >Nume
-            <input type="text" name="nume" />
-          </label>
-        </p>
-        <p>
-          <label
-            >Email
-            <input type="text" name="email" />
-          </label>
-        </p>
-        <p>
-          <label
-            >Telefon
-            <input type="text" name="telefon" />
-          </label>
-        </p>
-        <p>
-          <label
-            >Mesaj
-            <input type="text" name="mesaj" />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Trimite</button>
-        </p>
-      </form>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="/css/produse.css" rel="stylesheet" />
+  <title>Mitboc</title>
+</head>
+<body>
+  <p class="title"></p>
+  <div class="contact">
+    <h2>Contacteaza-ne</h2>
+    <form method="POST" action="/contact">
+      <p>
+        <label>Nume
+          <input type="text" name="nume" />
+        </label>
+      </p>
+      <p>
+        <label>Email
+          <input type="text" name="email" />
+        </label>
+      </p>
+      <p>
+        <label>Telefon
+          <input type="text" name="telefon" />
+        </label>
+      </p>
+      <p>
+        <label>Mesaj
+          <input type="text" name="mesaj" />
+        </label>
+      </p>
+      <p>
+        <button type="submit">Trimite</button>
+      </p>
+    </form>
+  </div>
+</body>
 </html>
 <style>
-  main{ display:grid;}
-  .contact{
+  main { display: grid; }
+  .contact {
     place-self: center;
-    display:grid;
+    display: grid;
   }
 </style>
