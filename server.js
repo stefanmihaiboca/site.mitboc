@@ -70,9 +70,9 @@ app.get("/table", async (req, res) => {
 });
 app.delete("/table/delete/:id", async (req, res) => {
   try {
-    const messageId = req.params.id; // Folosim "id" cu literă mică
+    const messageId = req.params.id; 
     const db = await pool.getConnection();
-    const query = "DELETE FROM contact_tabela WHERE ID = ?"; // Folosim "ID" cu literă mare
+    const query = "DELETE FROM contact_tabela WHERE ID = ?"; 
     await db.query(query, [messageId]);
     res.json({ success: true });
   } catch (error) {
@@ -83,9 +83,9 @@ app.delete("/table/delete/:id", async (req, res) => {
 
 app.put("/table/mark/:id", async (req, res) => {
   try {
-    const messageId = req.params.id; // Folosim "id" cu literă mică
+    const messageId = req.params.id; 
     const db = await pool.getConnection();
-    const query = "UPDATE contact_tabela SET marked = 1 WHERE id = ?"; // Folosim "id" cu literă mică
+    const query = "UPDATE contact_tabela SET marked = 1 WHERE id = ?"; 
     await db.query(query, [messageId]);
     res.json({ success: true });
   } catch (error) {

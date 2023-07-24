@@ -7,14 +7,14 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 20px;
-      background-color: #111; /* Fundalul negru */
-      color: white; /* Textul alb */
+      background-color: #111; 
+      color: white; 
     }
 
     .container {
       max-width: 1000px;
       margin: 0 auto;
-      background-color: #333; /* Fundalul containerului */
+      background-color: #333; 
       border-radius: 8px;
       padding: 20px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -32,13 +32,13 @@
     }
 
     th, td {
-      border: 1px solid #555; /* Linii mai inchise la culoare */
+      border: 1px solid #555; 
       padding: 12px;
       text-align: left;
     }
 
     th {
-      background-color: #444; /* Antet mai inchis la culoare */
+      background-color: #444; 
       font-weight: bold;
     }
 
@@ -48,7 +48,7 @@
     }
 
     .delete-button, .mark-button {
-      background-color: #d32f2f; /* Culoare rosie pentru butoane */
+      background-color: #d32f2f; 
       color: white;
       border: none;
       border-radius: 4px;
@@ -57,11 +57,11 @@
     }
 
     .mark-button {
-      background-color: #1976d2; /* Culoare albastra pentru butonul de marca */
+      background-color: #1976d2; 
     }
 
     .delete-button:hover, .mark-button:hover {
-      background-color: #b71c1c; /* Culoare rosie mai inchisa la hover */
+      background-color: #b71c1c; 
     }
 
     .delete-button i, .mark-button i {
@@ -69,7 +69,7 @@
     }
 
     .delete-button:hover, .mark-button:hover {
-      color: #111; /* Schimbam culoarea textului la hover */
+      color: #111; 
     }
   </style>
 </head>
@@ -111,7 +111,7 @@
 
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script>
-    // Funcție pentru ștergerea mesajului
+  
     async function deleteMessage(id) {
       try {
         const response = await fetch(`/table/delete/${id}`, {
@@ -122,7 +122,7 @@
 
         if (data.success) {
           alert("Mesajul a fost șters cu succes!");
-          window.location.reload(); // Reîncarcăm pagina pentru a actualiza tabelul
+          window.location.reload(); 
         } else {
           alert("Eroare la ștergere!");
         }
@@ -131,7 +131,6 @@
       }
     }
 
-    // Funcție pentru marcarea mesajului
     async function markMessage(id) {
       try {
         const response = await fetch(`/table/mark/${id}`, {
@@ -142,7 +141,7 @@
 
         if (data.success) {
           alert("Mesajul a fost marcat cu succes!");
-          window.location.reload(); // Reîncarcăm pagina pentru a actualiza tabelul
+          window.location.reload(); 
         } else {
           alert("Eroare la marcarea mesajului!");
         }
